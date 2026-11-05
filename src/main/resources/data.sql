@@ -7,6 +7,8 @@ insert into user_account (email, display_name, role, created_at) values
     ('firma@example.com',       'Firma', 'PARTNER', current_timestamp),
     ('admin@example.com',       'Admin', 'ADMIN',   current_timestamp);
 
--- LAB 01: Wasze konta (zmieńcie na swoje dane, rola USER)
--- insert into user_account (email, display_name, role, created_at) values
---     ('imie.nazwisko@student.merito.pl', 'Imię', 'USER', current_timestamp);
+-- LAB 01 (R1.03): dodałem konta członków zespołu, niezależne od kont GitHub.
+insert into user_account (email, display_name, role, created_at) values
+    ('s179785@student.wroclaw.merito.pl', 'Michał Grzegorski', 'USER', current_timestamp),
+    ('s954533@student.wroclaw.merito.pl', 'Jakub Jakubowski', 'USER', current_timestamp),
+    ('wrx101020@student.wroclaw.merito.pl', 'Radosław Jędraszek', 'USER', current_timestamp);

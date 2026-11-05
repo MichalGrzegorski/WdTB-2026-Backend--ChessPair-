@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Backend działa · WdTB-2026-Backend</title>
+<title>ChessPair · Kojarzenie graczy szachowych</title>
 <style>
   :root { --ink: #141e50; --blue: #006efa; --muted: #5b6685; --line: #d5def0; --bg: #f5f8fd; --tint: #e8f0ff; --ok: #1d7a4c; }
   * { box-sizing: border-box; }
@@ -37,32 +37,42 @@
   <header>
     <img class="logo" src="merito-logo.png" alt="Uniwersytet WSB Merito Wrocław">
     <span class="status"><span class="dot" aria-hidden="true"></span>Backend działa</span>
-    <h1>Wprowadzenie do technologii backendowych</h1>
-    <p>Tę stronę serwuje Wasza aplikacja Spring Boot z pliku <code>src/main/resources/static/index.html</code>.
-       Na LAB 01 wypełnijcie poniższą wizytówkę projektu. LAB 02 zaczyna się od jej prezentacji:
-       uruchamiacie aplikację i pokazujecie tę stronę.</p>
+    <h1>ChessPair</h1>
+    <p>Projekt zespołowy z przedmiotu Wprowadzenie do technologii backendowych.
+       Poniżej przedstawiłem pomysł aplikacji i postęp prac.</p>
   </header>
 
-  <!-- LAB 01: wizytówka Waszego projektu, na jej podstawie prezentujecie projekt na początku LAB 02.
-       Zastąpcie wszystkie znaczniki „uzupełnij” w nawiasach kwadratowych (reguła R1.04). -->
+  <!-- LAB 01: uzupełniłem wizytówkę projektu (R1.04). -->
   <section class="card project">
-    <h2>[uzupełnij: nazwa projektu]</h2>
-    <p class="pitch">[uzupełnij: jedno zdanie – jaki problem rozwiązuje aplikacja i dla kogo]</p>
+    <h2>O projekcie</h2>
+    <p class="pitch">ChessPair pomoże szachistom i organizatorom turniejów dobierać przeciwników
+       o zbliżonym rankingu, tak aby w każdej parze jeden gracz grał białymi, a drugi czarnymi.</p>
     <table>
-      <tr><td>Autorzy</td><td>[uzupełnij: imiona i nazwiska, grupa]</td></tr>
-      <tr><td>Dla kogo</td><td>[uzupełnij: persona, np. „Anna, właścicielka kawiarni, chce przyjmować rezerwacje stolików online”]</td></tr>
-      <tr><td>Najważniejsze funkcje</td><td>[uzupełnij: 3 funkcje, np. lista stolików, rezerwacja, raport dla właściciela]</td></tr>
+      <tr><td>Autorzy</td><td>Michał Grzegorski (lider), Jakub Jakubowski, Radosław Jędraszek</td></tr>
+      <tr><td>Grupa</td><td>DO UZUPEŁNIENIA: zostawiłem miejsce na oznaczenie grupy przed prezentacją.</td></tr>
+      <tr><td>Dla kogo</td><td>Szachista szukający przeciwnika na podobnym poziomie oraz organizator,
+        który chce sprawnie przygotować pary do rozgrywek turniejowych.</td></tr>
+      <tr><td>Planowane funkcje</td><td>
+        <ol>
+          <li>Ewidencja graczy: ranking, kolor gry i dostępność.</li>
+          <li>Kojarzenie dostępnych graczy o przeciwnych kolorach i zbliżonym rankingu w partie online lub turniejowe.</li>
+          <li>Organizacja turniejów i przegląd zaplanowanych partii.</li>
+        </ol>
+      </td></tr>
     </table>
     <h3>Zmiany w projekcie</h3>
     <ul>
-      <li><b>LAB 01:</b> [uzupełnij: co zmieniliście, np. nazwa projektu, konta zespołu, wizytówka]</li>
+      <li><b>LAB 01:</b> Zachowałem pakiet <code>pl.wsb.chesspair</code> i klasę
+        <code>ChessPairApplication</code> przygotowane przez lidera. Uzupełniłem nazwę projektu
+        w Maven, konta zespołu i wizytówkę pomysłu.</li>
     </ul>
-    <p class="muted">Na kolejnych laboratoriach dopisujcie tu kolejne punkty.</p>
+    <p class="muted">Do uzupełnienia przed oddaniem zostawiłem oznaczenie grupy powyżej.
+      Rozwój funkcji biznesowych zostawiłem na kolejne laboratoria.</p>
   </section>
 
   <section class="card">
     <h2>1. Zajrzyjcie do bazy danych</h2>
-    <p>Aplikacja ma wbudowaną bazę H2. Na start jest w niej jedna tabela, <code>user_account</code>, z kontami z pliku <code>data.sql</code>.</p>
+    <p>Aplikacja ma wbudowaną bazę H2. Tabela <code>user_account</code> zawiera konta z pliku <code>data.sql</code>.</p>
     <table>
       <tr><td>JDBC URL</td><td><code>jdbc:h2:file:./data/wdtb</code></td></tr>
       <tr><td>Użytkownik</td><td><code>sa</code></td></tr>
