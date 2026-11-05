@@ -65,6 +65,9 @@
       <li><b>LAB 01:</b> Zachowałem pakiet <code>pl.wsb.chesspair</code> i klasę
         <code>ChessPairApplication</code> przygotowane przez lidera. Uzupełniłem nazwę projektu
         w Maven, konta zespołu i wizytówkę pomysłu.</li>
+      <li><b>LAB 02:</b> Dodałem trzy własne encje: gracza, partię i turniej, bez relacji.
+        Kolory graczy i statusy zapisałem jako enumy tekstowe. Tempo gry wydzieliłem do klasy wbudowanej
+        <code>TimeControl</code>. Przygotowałem dane startowe: sześciu graczy, trzy partie i trzy turnieje.</li>
     </ul>
     <p class="muted">Do uzupełnienia przed oddaniem zostawiłem oznaczenie grupy powyżej.
       Rozwój funkcji biznesowych zostawiłem na kolejne laboratoria.</p>
@@ -72,7 +75,8 @@
 
   <section class="card">
     <h2>1. Zajrzyjcie do bazy danych</h2>
-    <p>Aplikacja ma wbudowaną bazę H2. Tabela <code>user_account</code> zawiera konta z pliku <code>data.sql</code>.</p>
+    <p>Aplikacja ma wbudowaną bazę H2. Tabele <code>user_account</code>, <code>player</code>,
+      <code>chess_game</code> i <code>tournament</code> zawierają dane startowe z pliku <code>data.sql</code>.</p>
     <table>
       <tr><td>JDBC URL</td><td><code>jdbc:h2:file:./data/wdtb</code></td></tr>
       <tr><td>Użytkownik</td><td><code>sa</code></td></tr>
