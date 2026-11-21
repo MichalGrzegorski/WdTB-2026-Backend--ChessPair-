@@ -10,6 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import jakarta.validation.constraints.Min;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Dodałem dane turnieju. Powiązania z uczestnikami i partiami zostawiłem na kolejne laboratoria. */
 @Entity
@@ -36,6 +40,10 @@ public class Tournament {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 20)
     private TournamentStatus status;
+/** lab3 - dodalem liste rund nalezacych do turnieju */
+    @OneToMany(mappedBy = "tournament", fetch = FetchType.LAZY)
+    private List<TournamentRound> rounds = new ArrayList<>();
+
 
     protected Tournament() {
     }
@@ -70,5 +78,9 @@ public class Tournament {
 
     public TournamentStatus getStatus() {
         return status;
+    }
+
+    public List<TournamentRound> getRounds() {
+        return rounds;
     }
 }
