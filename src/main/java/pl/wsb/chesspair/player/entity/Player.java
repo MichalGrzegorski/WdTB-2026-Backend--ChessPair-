@@ -10,8 +10,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.Min;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import pl.wsb.chesspair.account.domain.UserAccount;
+
+
+
 
 /** Dodałem profil szachisty. Powiązanie z kontem użytkownika zostawiłem na kolejne laboratoria. */
+/** Lab3 - powiazalem profil z kontem uzytkownika */
 @Entity
 @Table(name = "player")
 public class Player {
@@ -37,15 +45,23 @@ public class Player {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
+/** lab3 - dodalem opcjonalna relacje one to one z kontem
+* ustawilem lazy, aby dane konta byly pobierane dopiero gdy sa potrzebne. */
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_account_id", unique = true)
+    private UserAccount account;
+
     protected Player() {
     }
 
-    public Player(String nickname, Integer rating, PieceColor color, boolean available, LocalDateTime createdAt) {
+/** lab3 - rozszerzylem konstruktor o konto przypisane do gracza. */
+    public Player(String nickname, Integer rating, PieceColor color, boolean available, LocalDateTime createdAt, UserAccount account) {
         this.nickname = nickname;
         this.rating = rating;
         this.color = color;
         this.available = available;
         this.createdAt = createdAt;
+        this.account = account;
     }
 
     public Long getId() {
@@ -71,4 +87,7 @@ public class Player {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+
+/** lab3 - dodalem getter pozwalajacy odczytac konto gracza */
+    public UserAccount getAccount() {return account; }
 }
